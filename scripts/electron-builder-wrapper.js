@@ -70,9 +70,6 @@ const runBuilder = function (wrapperConfig, target) {
     if (!wrapperConfig.doPackage) {
         allArgs.push('--dir', '--c.compression=store');
     }
-    if (wrapperConfig.arch === 'ia32') {
-        allArgs.push('--ia32');
-    }
     allArgs = allArgs.concat(wrapperConfig.builderArgs);
     console.log(`running electron-builder with arguments: ${allArgs}`);
     const result = spawnSync('electron-builder', allArgs, {
@@ -157,15 +154,11 @@ const parseArgs = function () {
     const scriptArgs = process.argv.slice(2); // remove `node` and `this-script.js`
     const builderArgs = [];
     let mode = 'dev'; // default
-    let arch = null;
 
     for (const arg of scriptArgs) {
         const modeSplit = arg.split(/--mode(\s+|=)/);
-        const archSplit = arg.split(/--arch(\s+|=)/);
         if (modeSplit.length === 3) {
             mode = modeSplit[2];
-        } else if (archSplit.length === 3) {
-            arch = archSplit[2];
         } else {
             builderArgs.push(arg);
         }
@@ -185,16 +178,14 @@ const parseArgs = function () {
         break;
     case 'dist':
         doPackage = true;
-        // doSign = true; // skip code signing before getting a certificate
-        doSign = false;
+        doSign = true;
     }
 
     return {
         builderArgs,
         doPackage, // false = build to directory
         doSign,
-        mode,
-        arch
+        mode
     };
 };
 

@@ -4,44 +4,44 @@ directories:
 extraResources: ["tools", "external-resources", 'firmwares', "statics", "drivers"]
 
 appId: openblock.cc.openblock-desktop
-productName: "OpenBlock"
+productName: "Scratch"
 publish: # empty provider list = don't publish
 
 fileAssociations:
   ext: ob
-  name: Openblock project file
+  name: Scratch project file
   role: Editor
-  icon: buildResources/OpenBlockFile.ico
+  icon: buildResources/ScratchFile.ico
 
-mac:
-  category: public.app-category.education
-  entitlements: buildResources/entitlements.mac.plist
-  extendInfo:
-    NSCameraUsageDescription: >-
-        This app requires camera access when taking a photo in the paint editor or using the video sensing blocks.
-    NSMicrophoneUsageDescription: >-
-        This app requires microphone access when recording sounds or detecting loudness.
-  gatekeeperAssess: true
-  hardenedRuntime: true
-  icon: buildResources/OpenBlockDesktop.icns
-  provisioningProfile: embedded.provisionprofile
-  artifactName: "OpenBlock ${version}.${ext}"
-  target:
-    - dmg
-    # - mas
-dmg:
-  title: "OpenBlock ${version}"
+# mac:
+#   category: public.app-category.education
+#   entitlements: buildResources/entitlements.mac.plist
+#   extendInfo:
+#     NSCameraUsageDescription: >-
+#         This app requires camera access when taking a photo in the paint editor or using the video sensing blocks.
+#     NSMicrophoneUsageDescription: >-
+#         This app requires microphone access when recording sounds or detecting loudness.
+#   gatekeeperAssess: true
+#   hardenedRuntime: true
+#   icon: buildResources/ScratchDesktop.icns
+#   provisioningProfile: embedded.provisionprofile
+#   artifactName: "Scratch ${version}.${ext}"
+#   target:
+#     - dmg
+#     - mas
+# dmg:
+#   title: "Scratch ${version}"
 # mas:
 #   category: public.app-category.education
 #   entitlements: buildResources/entitlements.mas.plist
 #   entitlementsInherit: buildResources/entitlements.mas.inherit.plist
 #   hardenedRuntime: false
-#   icon: buildResources/OpenBlockDesktop.icns
+#   icon: buildResources/ScratchDesktop.icns
 # masDev:
 #   type: development
 #   provisioningProfile: mas-dev.provisionprofile
 win:
-  icon: buildResources/OpenBlockDesktop.ico
+  icon: buildResources/ScratchDesktop.ico
   target:
     # - appx
     - nsis
@@ -49,10 +49,10 @@ win:
 #   identityName: "OpenblockTeam.OpenblockDesktop
 #   publisherDisplayName: "Openblock Team"
 #   publisher: "CN=2EC43DF1-469A-4119-9AB9-568A0A1FF65F"
-#   artifactName: "Openblock ${version}.${ext}"
+#   artifactName: "Scratch ${version}.${ext}"
 nsis:
   oneClick: false # allow user to choose per-user or per-machine
   allowToChangeInstallationDirectory: true
   include: buildResources/installer.nsh
 #   license: LICENSE
-  artifactName: "OpenBlock ${version} Setup.${ext}"
+  artifactName: "Scratch ${version} Setup.${ext}"
