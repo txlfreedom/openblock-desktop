@@ -13,24 +13,24 @@ fileAssociations:
   role: Editor
   icon: buildResources/ScratchFile.ico
 
-# mac:
-#   category: public.app-category.education
-#   entitlements: buildResources/entitlements.mac.plist
-#   extendInfo:
-#     NSCameraUsageDescription: >-
-#         This app requires camera access when taking a photo in the paint editor or using the video sensing blocks.
-#     NSMicrophoneUsageDescription: >-
-#         This app requires microphone access when recording sounds or detecting loudness.
-#   gatekeeperAssess: true
-#   hardenedRuntime: true
-#   icon: buildResources/ScratchDesktop.icns
-#   provisioningProfile: embedded.provisionprofile
-#   artifactName: "Scratch ${version}.${ext}"
-#   target:
-#     - dmg
-#     - mas
-# dmg:
-#   title: "Scratch ${version}"
+mac:
+  category: public.app-category.education
+  entitlements: buildResources/entitlements.mac.plist
+  extendInfo:
+    NSCameraUsageDescription: >-
+        This app requires camera access when taking a photo in the paint editor or using the video sensing blocks.
+    NSMicrophoneUsageDescription: >-
+        This app requires microphone access when recording sounds or detecting loudness.
+  gatekeeperAssess: true
+  hardenedRuntime: true
+  icon: buildResources/ScratchDesktop.icns
+  provisioningProfile: embedded.provisionprofile
+  artifactName: "Scratch ${version}.${ext}"
+  target:
+    - dmg
+    # - mas
+dmg:
+  title: "Scratch ${version}"
 # mas:
 #   category: public.app-category.education
 #   entitlements: buildResources/entitlements.mas.plist
@@ -46,7 +46,7 @@ win:
     # - appx
     - nsis
 # appx:
-#   identityName: "OpenblockTeam.OpenblockDesktop
+#   identityName: "OpenblockTeam.ScratchDesktop
 #   publisherDisplayName: "Openblock Team"
 #   publisher: "CN=2EC43DF1-469A-4119-9AB9-568A0A1FF65F"
 #   artifactName: "Scratch ${version}.${ext}"

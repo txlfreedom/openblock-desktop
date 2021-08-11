@@ -1,5 +1,30 @@
 # Change Log
 
+## v2.2.3
+
+- **Fix bug**
+
+    1. When you double-click to open the project file with the selected device, an error will occur in loading.
+    2. After add comment for device extension block and save the project file. If try to load the project after restart the software, there is another comment window appear which cannot able to delete.
+
+## v2.2.2
+
+- **New feature**
+
+    1. Optimize the font and line break display effect of the serial terminal.
+    2. Display the loaded extensions first in the extensions library.
+    3. Modify the default serial port configuration of esp8266 to the official default 76800.
+    4. Modify the esp8266 upload rate to 921600 to speed up the upload speed.
+
+- **Fix bug**
+
+    1. When loading a project with a extension, an error will be reported and cannot be loaded.
+    2. The input box of the variable increase block is parsed incorrectly when other blocks or variables are placed.
+    3. In the even sprite, the movement blocks in the toolbox area will not automatically change to the coordinates of the character's current position.
+    4. Fix the problem that esp32 and esp8266 cannot start after clicking the reset button when connecting to openblock due to the lack of serial port to enable dtr rts flow control.
+    5. After connecting and disconnecting the device once in upload mode, no matter what mode is connected to the device again, it will not be able to establish communication with the connection firmata.
+    6. ESP32 and ESP8266 will get stuck for a long time between compiling and uploading.
+
 ## v2.2.1
 
 - **Fix bug**

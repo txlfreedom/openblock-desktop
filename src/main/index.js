@@ -3,7 +3,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import {URL} from 'url';
 import {promisify} from 'util';
-import {execFile} from 'child_process';
+import {execFile, spawn} from 'child_process';
 import os from 'os';
 
 import argv from './argv';
@@ -76,7 +76,7 @@ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
         message = formatMessage({
             id: 'index.cameraPermissionDeniedMessage',
             default: 'Permission to use the camera has been denied. ' +
-                'Scratch will not be able to take a photo or use video sensing blocks.',
+                'OpenBlock will not be able to take a photo or use video sensing blocks.',
             description: 'message for camera permission denied'
         });
         break;
@@ -89,7 +89,7 @@ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
         message = formatMessage({
             id: 'index.microphonePermissionDeniedMessage',
             default: 'Permission to use the microphone has been denied. ' +
-                    'Scratch will not be able to record sounds or detect loudness.',
+                    'OpenBlock will not be able to record sounds or detect loudness.',
             description: 'message for microphone permission denied'
         });
         break;
@@ -111,14 +111,14 @@ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
     case 'darwin':
         instructions = formatMessage({
             id: 'index.darwinPermissionDeniedInstructions',
-            default: 'To change Scratch permissions, please check "Security & Privacy" in System Preferences.',
+            default: 'To change OpenBlock permissions, please check "Security & Privacy" in System Preferences.',
             description: 'prompt for fix darwin permission denied instructions'
         });
         break;
     default:
         instructions = formatMessage({
             id: 'index.permissionDeniedInstructions',
-            default: 'To change Scratch permissions, please check your system settings and restart Scratch.',
+            default: 'To change OpenBlock permissions, please check your system settings and restart OpenBlock.',
             description: 'prompt for fix permission denied instructions'
         });
         break;
@@ -350,13 +350,13 @@ const createMainWindow = () => {
             type: 'question',
             message: formatMessage({
                 id: 'index.questionLeave',
-                default: 'Leave Scratch?',
-                description: 'prompt for leave Scratch'
+                default: 'Leave Openblock?',
+                description: 'prompt for leave Openblock'
             }),
             detail: formatMessage({
                 id: 'index.questionLeaveDetail',
                 default: 'Any unsaved changes will be lost.',
-                description: 'detail prompt for leave Scratch'
+                description: 'detail prompt for leave Openblock'
             }),
             buttons: [
                 formatMessage({
@@ -546,6 +546,8 @@ app.on('ready', () => {
             execFile('install_x64.bat', [], {cwd: driverPath});
         } else if ((os.platform() === 'win32') && (os.arch() === 'ia32')) {
             execFile('install_x86.bat', [], {cwd: driverPath});
+        } else if ((os.platform() === 'darwin')) {
+            spawn('sh', ['install.sh'], {shell: true, cwd: driverPath});
         }
     });
 
