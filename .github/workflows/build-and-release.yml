@@ -5,6 +5,10 @@ on:
     branches: [ main ]
     tags:
       - 'v*'
+    paths-ignore:
+      - 'README.md'
+      - 'CHANGE.md'
+      - 'doc/*'
 
 jobs:
   build-windows:
@@ -114,12 +118,14 @@ jobs:
           release_name: Scratch Desktop ${{ steps.tag.outputs.tag }}
           body: |
             - **New feature**
-              1. First Change
-              2. Second Change
+
+                1. First Change
+                2. Second Change
 
             - **Fix bug**
-              1. First Change
-              2. Second Change
+
+                1. First Change
+                2. Second Change
           draft: true
           prerelease: false
 

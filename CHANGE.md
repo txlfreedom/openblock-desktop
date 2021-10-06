@@ -1,5 +1,39 @@
 # Change Log
 
+## v2.2.7
+
+- **Fix bug**
+
+    1. After loading the project file, save the project file again and load it, there will be an error and the project cannot be loaded.
+    2. After loading the project file, click the new project button, and the interface will crash.
+    3. When opening the extension interface in upload mode, it will freeze for 1~2 seconds before the extension options are loaded.
+
+## v2.2.6
+
+- **Fix bug**
+
+    1. The newline parameter of arduino mega2560 serial send block does not take effect.
+    2. After creating a new sprite, the device selection is cleared.
+    3. An error occurs after load a project file that contains multiple device extensions.
+
+## v2.2.5
+
+- **Fix bug**
+
+    1. Because shield in openblock-resource source code is misspelled as sheild, shield filter in GUI interface is null.
+    2. In VM, one more line of startheartbeat function call is written, and startheartbeat repeats reentry, resulting in real-time communication error.
+    3. Add rtscts flow control configuration to repair the situation that some three-party compatible boards cannot be used when opening rtscts flow control.
+    4. Cannot edit input-box after the alert or confirm window pops up.
+    5. The device selection is not cleared after a new project is created.
+    6. The old device is not disconnected after a new project is created.
+
+## v2.2.4
+
+- **Fix bug**
+
+    1. There is no A0 ~ A5 option for the read digital pin blocks of control boards such as Arduino UNO.
+    2. After using the shortcut key Ctrl + Z to modify blocks, the code on the right side is not updated.
+
 ## v2.2.3
 
 - **Fix bug**
