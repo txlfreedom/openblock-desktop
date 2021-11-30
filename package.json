@@ -3,7 +3,7 @@
   "productName": "Scratch",
   "description": "Scratch as a self-contained desktop application",
   "author": "Sqdd Team",
-  "version": "2.2.13",
+  "version": "2.2.24",
   "license": "MIT",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
